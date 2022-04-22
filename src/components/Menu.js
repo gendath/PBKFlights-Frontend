@@ -7,7 +7,7 @@ class Menu extends React.Component{
         return (
             <Navbar className="navbar-custom" bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand id="brand" href="#home">PBK Luxury Flights</Navbar.Brand>
+                    <Navbar.Brand id="brand" href="#home">PBK</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">

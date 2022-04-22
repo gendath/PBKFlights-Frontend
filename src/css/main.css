@@ -39,6 +39,14 @@
     clip-path: polygon(0 0%, 50% 3%,100% 0%, 100% 100%,0% 100%);
     margin-bottom: 5em;
 }
+.jumbotron img {
+    border:5px solid rgba(0,0,250,.5);
+    margin-top:2rem;
+    border-radius: 5%;
+}
+.jumbotron a.btn {
+    margin-bottom:2rem;
+}
 
 .art-img-header {
     text-align: center;
