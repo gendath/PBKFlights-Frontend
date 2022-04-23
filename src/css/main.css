@@ -4,6 +4,9 @@
    Author's custom styles
    ========================================================================== */
 
+#flightHeader {
+    text-align: center;
+}
 .navbar-light .navbar-nav .nav-link{
     color:white;
 }

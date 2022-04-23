@@ -10,7 +10,7 @@ class App extends Component {
         return (
             <>
                 <Menu />
-                <Splash />
+                <Splash router={this.props.history}/>
                 <ArticleField />
             </>
 
