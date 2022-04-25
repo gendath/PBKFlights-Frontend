@@ -1,21 +1,42 @@
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import App from "./App";
 import Menu from "./Menu";
-import FlightsView from "./FlightsView";
+import FlightsList from "./FlightsList";
+import Login from "./Login";
+import Register from "./Register";
+import SearchFlights from "./SearchFlights";
+import React,{Component} from "react";
 
-const Router = () =>(
-    <BrowserRouter>
-        <Switch>
-            <Route exact path="/" component={App} />
-            <Route exact path="/flights" component={FlightsView} />
-            <Route exact path="/flights/:id" component={App} />
-            <Route exact path="/Order/:id" component={App} />
-            <Route exact path="/admin" component={App} />
-            <Route exact path="/login" component={App} />
-            <Route exact path="/register" component={App} />
-            <Route component={App} />
-        </Switch>
-    </BrowserRouter>
-)
+class Router extends Component {
+    constructor(props) {
+        super(props);
+
+        console.log("Router State:")
+        console.log(this.props.state)
+    }
+
+
+    render() {
+        return (
+            <BrowserRouter setState={this.props.setState}>
+                <Switch setState={this.props.setState}>
+                    <Route exact path="/" render={()=><App state={this.props.state} setState={this.props.setState}/>} />
+                    <Route exact path="/flights" render={()=><FlightsList state={this.props.state} setState={this.props.setState}/>} />
+                    <Route exact path="/flights/:id">
+                        <FlightsList state={this.props.state} setState={this.props.setState} />
+                    </Route>
+                    <Route exact path="/Order/:id" component={App} state={this.props.state} setState={this.props.setState} />
+                    <Route exact path="/Order/:id" component={App} state={this.props.state} setState={this.props.setState} />
+                    <Route exact path="/admin" component={App} state={this.props.state} setState={this.props.setState} />
+                    <Route exact path="/login" render={()=><Login state={this.props.state} setState={this.props.setState}/>} />
+                    <Route exact path="/register" component={Register} state={this.props.state} setState={this.props.setState} />
+                    <Route exact path="/search" component={SearchFlights} state={this.props.state} setState={this.props.setState} />
+                    <Route exact path="/search/:origin/:destination" component={SearchFlights} state={this.props.state} setState={this.props.setState} />
+                    <Route component={App} state={this.props.state} setState={this.props.setState} />
+                </Switch>
+            </BrowserRouter>
+        )
+    }
+}
 
 export default Router

@@ -10,7 +10,7 @@ class Splash extends Component {
                 <p className="lead my-4">It's not where you're going that matters. It's how you get there.</p>
                     <a
                         onClick={this.flightsButtonClick}
-                        className="btn btn-custom btn-lg" role="button">Learn more</a>
+                        className="btn btn-custom btn-lg" role="button">Book an Amazing Flight!</a>
             </div>
         )
     }
