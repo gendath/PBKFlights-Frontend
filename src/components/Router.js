@@ -23,6 +23,7 @@ class Router extends Component {
             <BrowserRouter setState={this.props.setState}>
                 <Switch setState={this.props.setState}>
                     <Route exact path="/" render={()=><App state={this.props.state} setState={this.props.setState}/>} />
+                    <Route exact path="/search" render={()=><SearchFlights state={this.props.state} setState={this.props.setState}/>} />
                     <Route exact path="/flights" render={()=><FlightsList state={this.props.state} setState={this.props.setState}/>} />
                     <Route exact path="/register" render={()=><Register state={this.props.state} setState={this.props.setState}/>} />
                     <Route exact path="/login" render={()=><Login state={this.props.state} setState={this.props.setState}/>} />

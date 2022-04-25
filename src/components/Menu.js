@@ -64,7 +64,7 @@ class Menu extends React.Component {
             toast:""
         })
         this.props.router.push({
-            pathname: '/flights',
+            pathname: '/search',
             state: {...this.props.state}
         })
     }

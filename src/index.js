@@ -16,6 +16,11 @@ class Index extends Component{
             userId:null,
             bookings:[],
             flights:[],
+            hubs:[],
+            trips:[],
+            tripOrigin: "",
+            tripDestination : "",
+            tripFlights:[],
             isLoggedIn:false,
             toast:""
         }

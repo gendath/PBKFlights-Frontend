@@ -4,6 +4,29 @@
    Author's custom styles
    ========================================================================== */
 
+
+#searchField {
+    background-color: #003a70!important;
+    padding: .5rem!important;
+    margin-bottom: 0!important;
+}
+#orderTripField {
+    background-color:lightgray!important;
+margin: 0rem .5rem;
+}
+#orderTripField .orderTripFieldForm{
+    color: white;
+    margin: 1rem!important;
+    border: 1px solid red;
+    padding: 1rem!important;
+}
+
+#searchField .searchFormField {
+    color: white;
+    margin: 1rem!important;
+    border: 1px solid red;
+    padding: 1rem!important;
+}
 #flightHeader {
     text-align: center;
 }
