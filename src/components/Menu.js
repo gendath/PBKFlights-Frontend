@@ -12,6 +12,9 @@ class Menu extends React.Component {
 
     register = (event) => {
         event.preventDefault()
+        this.props.setState({
+            toast:""
+        })
         this.props.router.push({
             pathname: '/register',
             state: {...this.props.state}
@@ -19,6 +22,9 @@ class Menu extends React.Component {
     }
     login = (event) => {
         event.preventDefault()
+        this.props.setState({
+            toast:""
+        })
         this.props.router.push({
             pathname: '/login',
             state: {...this.props.state}
@@ -26,6 +32,9 @@ class Menu extends React.Component {
     }
     logout = (event) => {
         event.preventDefault()
+        this.props.setState({
+            toast:""
+        })
         this.props.setState({
             userFirstName: "",
             userLastName: "",
@@ -41,6 +50,9 @@ class Menu extends React.Component {
     }
     home = (event) => {
         event.preventDefault()
+        this.props.setState({
+            toast:""
+        })
         this.props.router.push({
             pathname: '/',
             state: {...this.props.state}
@@ -48,6 +60,9 @@ class Menu extends React.Component {
     }
     flights = (event) => {
         event.preventDefault()
+        this.props.setState({
+            toast:""
+        })
         this.props.router.push({
             pathname: '/flights',
             state: {...this.props.state}

@@ -10,6 +10,9 @@
 .navbar-light .navbar-nav .nav-link{
     color:white;
 }
+.navbar-light .navbar-nav .nav-link:visited{
+    color:white;
+}
 
 .navbar-light .navbar-nav .nav-link:hover{
     color:yellow;
@@ -18,7 +21,7 @@
 
 #brand {
     font-weight: bold;
-    color:#c8102e!important;
+    color:white!important;
     text-shadow: #0f0f0f 1px 0 1px;
 }
 
@@ -30,7 +33,8 @@
     color: white;
 }
 .btn-custom:hover {
-    color: #c8102e;
+    color: yellow;
+    font-weight: bold;
 }
 
 .jumbotron {

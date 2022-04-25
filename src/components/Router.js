@@ -7,9 +7,11 @@ import Register from "./Register";
 import SearchFlights from "./SearchFlights";
 import React,{Component} from "react";
 
+
 class Router extends Component {
     constructor(props) {
         super(props);
+
 
         console.log("Router State:")
         console.log(this.props.state)
@@ -22,14 +24,8 @@ class Router extends Component {
                 <Switch setState={this.props.setState}>
                     <Route exact path="/" render={()=><App state={this.props.state} setState={this.props.setState}/>} />
                     <Route exact path="/flights" render={()=><FlightsList state={this.props.state} setState={this.props.setState}/>} />
-                    <Route exact path="/flights/:id">
-                        <FlightsList state={this.props.state} setState={this.props.setState} />
-                    </Route>
-                    <Route exact path="/Order/:id" component={App} state={this.props.state} setState={this.props.setState} />
-                    <Route exact path="/Order/:id" component={App} state={this.props.state} setState={this.props.setState} />
-                    <Route exact path="/admin" component={App} state={this.props.state} setState={this.props.setState} />
+                    <Route exact path="/register" render={()=><Register state={this.props.state} setState={this.props.setState}/>} />
                     <Route exact path="/login" render={()=><Login state={this.props.state} setState={this.props.setState}/>} />
-                    <Route exact path="/register" component={Register} state={this.props.state} setState={this.props.setState} />
                     <Route exact path="/search" component={SearchFlights} state={this.props.state} setState={this.props.setState} />
                     <Route exact path="/search/:origin/:destination" component={SearchFlights} state={this.props.state} setState={this.props.setState} />
                     <Route component={App} state={this.props.state} setState={this.props.setState} />

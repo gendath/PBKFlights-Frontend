@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, Form} from "react-bootstrap";
+import {Button, Form, Toast} from "react-bootstrap";
 
 const axios = require('axios')
 
@@ -7,9 +7,15 @@ class LoginForm extends Component{
     email = React.createRef()
     password = React.createRef()
 
+    constructor(props) {
+        super(props);
+        console.log("LoginForm state:")
+        console.log(this.props.state)
+    }
+
+
     handleSubmit = async (event) => {
         event.preventDefault()
-        console.log(this.email)
         let user;
         try{
             user= await axios.get(`http://localhost:8080/login/${this.email.current.value}/${this.password.current.value}`)
@@ -27,13 +33,31 @@ class LoginForm extends Component{
 
 
         }catch(e){
-            console.log(e)
-        }
 
+            console.log(e)
+
+        }
+        if(!this.props.state.isLoggedIn){
+            console.log("not logged in")
+            this.props.setState({
+                toast:"Invalid Username or Password"
+            })
+
+        }
+        console.log(this.props.state)
 
     }
     render(){
         return (
+            <>
+                {this.props.state.toast.length>0?(<Toast>
+                    <Toast.Header>
+                        <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                        <strong className="me-auto">PBK Flights</strong>
+                    </Toast.Header>
+                    <Toast.Body>{this.props.state.toast}</Toast.Body>
+                </Toast>):""}
+
             <Form target={"/"} onSubmit={this.handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail" >
                     <Form.Label>Email address</Form.Label>
@@ -51,7 +75,7 @@ class LoginForm extends Component{
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-            </Form>
+            </Form></>
         )
     }
 }

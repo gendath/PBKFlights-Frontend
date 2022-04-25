@@ -16,7 +16,8 @@ class Index extends Component{
             userId:null,
             bookings:[],
             flights:[],
-            isLoggedIn:false
+            isLoggedIn:false,
+            toast:""
         }
         this.setState = this.setState.bind(this)
         console.log("Master State:")
@@ -25,6 +26,7 @@ class Index extends Component{
 
 
     render(){
+
         return <Router setState={this.setState} state={this.state}/>
     }
 }

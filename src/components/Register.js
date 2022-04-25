@@ -3,12 +3,13 @@ import Menu from "./Menu";
 import LoginForm from "./LoginForm";
 import {Col, Container, Row} from "react-bootstrap";
 import RegistrationForm from "./RegistrationForm";
+import {withRouter} from "react-router-dom";
 
-class Login extends Component {
+class Register extends Component {
     render() {
         return (
             <>
-                <Menu router={this.props.history} setState={this.props.setState} />
+                <Menu router={this.props.history} setState={this.props.setState} state={this.props.state}/>
                 <Container className="my-4">
                     <Row>
 
@@ -28,4 +29,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default withRouter(Register)
