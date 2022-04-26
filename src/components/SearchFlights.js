@@ -60,7 +60,7 @@ class SearchFlights extends Component {
                                     <div className="tripInfo">
                                         <Row>
                                             <Col>
-                                                <OrderTable router={this.props.router} setState={this.props.setState} state={this.props.state}/>
+                                                <OrderTable router={this.props.history} setState={this.props.setState} state={this.props.state}/>
 
                                             </Col>
 
