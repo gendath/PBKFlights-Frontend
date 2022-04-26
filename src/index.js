@@ -9,7 +9,9 @@ class Index extends Component{
     constructor() {
         super();
         this.state={
-            order:{},
+            order:{
+                flights:[]
+            },
             userFirstName:"",
             userLastName:"",
             userEmail:"",
