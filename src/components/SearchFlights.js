@@ -4,6 +4,7 @@ import {Button, Col, Container, Row} from "react-bootstrap";
 import SearchForm from "./SearchForm";
 import {withRouter} from "react-router-dom";
 import TripTable from "./TripTable";
+import OrderTable from "./OrderTable";
 
 class SearchFlights extends Component {
     constructor(props) {
@@ -29,16 +30,25 @@ class SearchFlights extends Component {
                                     <div className="tripInfo">
                                         <Row>
                                             <Col>
-                                                <div className="my-2 align-content-center"><h2>Itinerary</h2></div>
+                                                <div className="my-2 align-content-center"><h2>Itinerary for Trip from {this.props.state.tripOrigin} to {this.props.state.tripDestination}</h2></div>
                                                 <TripTable state={this.props.state}/>
-                                                <Button className="float-end">Book This Trip!</Button>
+                                                <Button className="float-end btn-custom">Book This Trip!</Button>
                                             </Col>
 
                                         </Row>
                                     </div>
                                 </Col>
                                 <Col id="order">
-                                    <p>Order Field</p>
+                                    <div className="tripInfo">
+                                        <Row>
+                                            <Col>
+                                                <div className="my-2 align-content-center"><h2>Shopping Cart</h2></div>
+                                                <OrderTable state={this.props.state}/>
+                                                <Button className="float-end btn-custom">Initiate Escrow</Button>
+                                            </Col>
+
+                                        </Row>
+                                    </div>
                                 </Col>
                             </Row>
                         ):""}
