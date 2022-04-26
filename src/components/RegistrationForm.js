@@ -3,20 +3,40 @@ import {Button, Col, Form, Row} from "react-bootstrap";
 import axios from "axios";
 
 class LoginForm extends Component{
-    handleSubmit = (event) => {
+    firstName = React.createRef()
+    lastName = React.createRef()
+    email = React.createRef()
+    password1 = React.createRef()
+    password2 = React.createRef()
+    handleSubmit = async (event) => {
         event.preventDefault()
-        console.log("Handle Submit Click")
-        let result = axios({
-            method: 'post',
-            url: 'http://localhost:8080/signup',
-            data: {
-                firstName: 'Finn',
-                lastName: 'Williams',
-                email: 'user@example.com',
-                password: "password1"
-            }
+        console.log("Handle Submit Click    " + this.password1.current.value + "    " + this.password2.current.value)
+if(this.password1.current.value === this.password2.current.value){
+    let result = await axios({
+        method: 'post',
+        url: 'http://localhost:8080/signup',
+        data: {
+            firstName: this.firstName.current.value,
+            lastName: this.lastName.current.value,
+            email: this.email.current.value,
+            password: this.password1.current.value
+        }
+
         })
-        console.log(result)
+    await this.props.setState({
+            userFirstName:this.firstName.current.value,
+            userLastName:this.lastName.current.value,
+            userEmail:this.email.current.value,
+            userId:result.data.userId
+            ,isLoggedIn: true
+    })
+    this.props.router.push("/")
+}
+
+
+
+
+
     }
     render(){
         return (
@@ -25,19 +45,19 @@ class LoginForm extends Component{
                     <Col>
                         <Form.Group controlId="formFirstName">
                             <Form.Label>First Name</Form.Label>
-                            <Form.Control type="text" placeholder="First Name" />
+                            <Form.Control ref={this.firstName} type="text" placeholder="First Name" />
                         </Form.Group>
                     </Col>
                     <Col>
                         <Form.Group controlId="formLastName">
                             <Form.Label>Last Name</Form.Label>
-                            <Form.Control type="text" placeholder="Last Name" />
+                            <Form.Control ref={this.lastName} type="text" placeholder="Last Name" />
                         </Form.Group>
                     </Col>
                 </Row>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="email@example.com" />
+                    <Form.Control ref={this.email} type="email" placeholder="email@example.com" />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
@@ -45,11 +65,11 @@ class LoginForm extends Component{
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control ref={this.password1} type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formConfirmPassword">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control  ref={this.password2} type="password" placeholder="Password" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
