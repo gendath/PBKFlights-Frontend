@@ -14,11 +14,22 @@ class SearchFlights extends Component {
     }
 
     bookTrip = async ()=>{
-        const order = {...this.props.state.trips}
-        await this.props.setState({
-            order
-        })
-        console.log(this.props.state.order)
+
+        if(this.props.state.isLoggedIn){
+
+            const order = {...this.props.state.trips}
+            await this.props.setState({
+                order
+            })
+            console.log(this.props.state.order)
+        }else{
+            this.props.setState({
+                toast:"Please log in to book a flight."
+
+            })
+            this.props.history.push("/login")
+        }
+
     }
 
     render(){

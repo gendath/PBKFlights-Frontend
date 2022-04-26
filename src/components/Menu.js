@@ -42,6 +42,9 @@ class Menu extends React.Component {
             userId: null,
             isLoggedIn: false,
             bookings:[],
+            order:{
+                flights:[]
+            }
         })
         this.props.router.push({
             pathname: '/',
