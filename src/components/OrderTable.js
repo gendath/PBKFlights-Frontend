@@ -2,6 +2,10 @@ import React, {Component} from "react";
 import {Button, Card, ListGroup, ListGroupItem, Table} from "react-bootstrap";
 
 class TripTable extends Component {
+
+    bookOrder=()=>{
+        this.props.router.push("/boardingpass")
+    }
     render() {
         return (
             <Card className="float-end" style={{width: '30rem'}}>
@@ -27,7 +31,7 @@ class TripTable extends Component {
                             ${this.props.state.order.totalPrice}</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                        <Button className="float-end btn-custom">Initiate Escrow</Button>
+                        <Button onClick={this.bookOrder} className="float-end btn-custom">Initiate Escrow</Button>
 
                     </Card.Body>
                 </>

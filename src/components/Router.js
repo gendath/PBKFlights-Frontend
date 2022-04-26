@@ -6,6 +6,7 @@ import Login from "./Login";
 import Register from "./Register";
 import SearchFlights from "./SearchFlights";
 import React,{Component} from "react";
+import BoardingPass from "./BoardingPass";
 
 
 class Router extends Component {
@@ -26,6 +27,7 @@ class Router extends Component {
                     <Route exact path="/search" render={()=><SearchFlights state={this.props.state} setState={this.props.setState}/>} />
                     <Route exact path="/flights" render={()=><FlightsList state={this.props.state} setState={this.props.setState}/>} />
                     <Route exact path="/register" render={()=><Register state={this.props.state} setState={this.props.setState}/>} />
+                    <Route exact path="/boardingpass" render={()=><BoardingPass state={this.props.state} setState={this.props.setState}/>} />
                     <Route exact path="/login" render={()=><Login state={this.props.state} setState={this.props.setState}/>} />
                     <Route exact path="/search" component={SearchFlights} state={this.props.state} setState={this.props.setState} />
                     <Route exact path="/search/:origin/:destination" component={SearchFlights} state={this.props.state} setState={this.props.setState} />
