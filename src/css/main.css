@@ -11,7 +11,8 @@
     margin-bottom: 0!important;
 }
 #orderTripField {
-    background-color:lightgray!important;
+    border: 1px solid lightgray;
+    padding:1rem;
 margin: 0rem .5rem;
 }
 #orderTripField .orderTripFieldForm{
