@@ -17,7 +17,7 @@ class Splash extends Component {
 
     flightsButtonClick =(event)=> {
         event.preventDefault()
-        this.props.router.push("/flights")
+        this.props.router.push("/search")
     }
 }
 

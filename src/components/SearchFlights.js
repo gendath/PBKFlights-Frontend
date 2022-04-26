@@ -13,6 +13,13 @@ class SearchFlights extends Component {
         console.log(this.props.state)
     }
 
+    bookTrip = async ()=>{
+        const order = {...this.props.state.trips}
+        await this.props.setState({
+            order
+        })
+        console.log(this.props.state.order)
+    }
 
     render(){
         return (
@@ -31,8 +38,8 @@ class SearchFlights extends Component {
                                         <Row>
                                             <Col>
                                                 <div className="my-2 align-content-center"><h2>Itinerary for Trip from {this.props.state.tripOrigin} to {this.props.state.tripDestination}</h2></div>
-                                                <TripTable state={this.props.state}/>
-                                                <Button className="float-end btn-custom">Book This Trip!</Button>
+                                                <TripTable router={this.props.router} setState={this.props.setState} state={this.props.state}/>
+                                                <Button onClick={this.bookTrip} className="float-end btn-custom">Book This Trip!</Button>
                                             </Col>
 
                                         </Row>
@@ -42,9 +49,8 @@ class SearchFlights extends Component {
                                     <div className="tripInfo">
                                         <Row>
                                             <Col>
-                                                <div className="my-2 align-content-center"><h2>Shopping Cart</h2></div>
-                                                <OrderTable state={this.props.state}/>
-                                                <Button className="float-end btn-custom">Initiate Escrow</Button>
+                                                <OrderTable router={this.props.router} setState={this.props.setState} state={this.props.state}/>
+
                                             </Col>
 
                                         </Row>

@@ -1,41 +1,46 @@
 import React, {Component} from "react";
-import {Table} from "react-bootstrap";
+import {Button, Card, ListGroup, ListGroupItem, Table} from "react-bootstrap";
 
-class TripTable extends Component{
-    render(){
+class TripTable extends Component {
+    render() {
         return (
-            <Table striped bordered hover size="sm">
-                <thead>
-                <tr>
-                    <th>Flight #</th>
-                    <th>Origin</th>
-                    <th>Destination</th>
-                    <th>Flight time</th>
-                    <th>Cost</th>
-                </tr>
-                </thead>
-                <tbody>
-                {this.props.state.tripFlights.map(f=>(
-                    <tr>
-                        <td>{f.flightId}</td>
-                        <td>{f.origin.name}</td>
-                        <td>{f.destination.name}</td>
-                        <td>{f.tripTime} hours</td>
-                        <td>${f.price}</td>
-                    </tr>
-                ))}
+            <Card className="float-end" style={{width: '30rem'}}>
+                <Card.Body>
+                    <Card.Title>Shopping Cart</Card.Title>
 
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>{this.props.state.trips.totalTravelTime} hours</td>
-                    <td>${this.props.state.trips.totalPrice}</td>
-                </tr>
+                </Card.Body> {this.props.state.order.flights.length > 0 ? (
+                <>
+                    <Card.Text className="mx-3">
+                        Great! Once escrow is initiated your flight concierge will be in touch to ensure all your
+                            desires are seen to!
+                        <p>You are booking the following experience:</p>
 
 
-                </tbody>
-            </Table>
+                    </Card.Text>
+                    <ListGroup className="list-group-flush">
+
+                        <ListGroupItem>{this.props.state.order.flights.length} {this.props.state.order.flights.length > 1 ? "seperate flights complete with 5 star dining and an all-star V.I.P entertainment package"
+                            : "exclusive, all-access V.I.P flight."}</ListGroupItem>
+                        <ListGroupItem>Top notch entertainment with backstage privileges to local events</ListGroupItem>
+                        <ListGroupItem>Our amazing no-limits concierge service</ListGroupItem>
+                        <ListGroupItem>All for the insanely low price of
+                            ${this.props.state.order.totalPrice}</ListGroupItem>
+                    </ListGroup>
+                    <Card.Body>
+                        <Button className="float-end btn-custom">Initiate Escrow</Button>
+
+                    </Card.Body>
+                </>
+            ) : (
+                <Card.Text className="mx-3">
+                    <p>Click "Book This Trip" to get started</p>
+
+
+                </Card.Text>
+            )}
+
+
+            </Card>
         )
     }
 }
