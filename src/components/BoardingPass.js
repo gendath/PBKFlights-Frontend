@@ -15,11 +15,14 @@ class BoardingPass extends Component {
 
                     <Row>
                         <Col/>
-                        <Col id="boardingPass" className="p-5 pt-1">
+                        <Col id="boardingPass"  className="p-5 pt-1 center">
                             <h1 id="boardingPassTitle" className="mt-4 mb-0">Boarding Pass</h1>
                             <hr/>
                             <small>Please print this screen for your records</small>
                             <div className="tripInfo my-4">
+                                <hr/>
+                                <img className="my-4" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:3000/BoardingPass" alt=""/>
+                                <hr/>
                                 <h2>Your Trip</h2>
 
                                 <div className="flightInfo">

@@ -4,7 +4,11 @@
    Author's custom styles
    ========================================================================== */
 
+.tripInfo {
+    text-align:center!important;
+}
 #boardingPass {
+    text-align: center;
     border: 1px solid #003a70
 }
 
