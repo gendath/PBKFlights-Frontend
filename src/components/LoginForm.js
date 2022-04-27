@@ -19,18 +19,21 @@ class LoginForm extends Component{
         let user;
         try{
             user= await axios.get(`http://localhost:8080/login/${this.email.current.value}/${this.password.current.value}`)
-            this.props.setState({
-                userFirstName:user.data.firstName,
-                userLastName:user.data.lastName,
-                userEmail:user.data.email,
-                userId:user.data.userId,
-                bookings:user.data.bookings,
-                isLoggedIn:true})
-            this.props.router.push({
-                pathname: '/',
-                state: {...this.props.state}
-            })
+            if(user.data !== null) {
+                this.props.setState({
+                    userFirstName:user.data.firstName,
+                    userLastName:user.data.lastName,
+                    userEmail:user.data.email,
+                    userId:user.data.userId,
+                    bookings:user.data.bookings,
+                    isLoggedIn:true})
+                this.props.router.push({
+                    pathname: '/',
+                    state: {...this.props.state}
+                })
 
+
+            }
 
         }catch(e){
 
