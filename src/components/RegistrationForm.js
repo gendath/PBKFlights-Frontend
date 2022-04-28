@@ -45,19 +45,19 @@ if(this.password1.current.value === this.password2.current.value){
                     <Col>
                         <Form.Group controlId="formFirstName">
                             <Form.Label>First Name</Form.Label>
-                            <Form.Control ref={this.firstName} type="text" placeholder="First Name" />
+                            <Form.Control required ref={this.firstName} type="text" placeholder="First Name" />
                         </Form.Group>
                     </Col>
                     <Col>
                         <Form.Group controlId="formLastName">
                             <Form.Label>Last Name</Form.Label>
-                            <Form.Control ref={this.lastName} type="text" placeholder="Last Name" />
+                            <Form.Control required ref={this.lastName} type="text" placeholder="Last Name" />
                         </Form.Group>
                     </Col>
                 </Row>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control ref={this.email} type="email" placeholder="email@example.com" />
+                    <Form.Control required ref={this.email} type="email" placeholder="email@example.com" />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
@@ -65,11 +65,11 @@ if(this.password1.current.value === this.password2.current.value){
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control ref={this.password1} type="password" placeholder="Password" />
+                    <Form.Control required ref={this.password1} type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formConfirmPassword">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control  ref={this.password2} type="password" placeholder="Password" />
+                    <Form.Control required  ref={this.password2} type="password" placeholder="Password" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
